@@ -5,6 +5,7 @@ import ViewStateSupport from 'ember-views/mixins/view_state_support';
 import InstrumentationSupport from 'ember-views/mixins/instrumentation_support';
 import AriaRoleSupport from 'ember-views/mixins/aria_role_support';
 import ViewMixin from 'ember-views/mixins/view_support';
+import TargetActionSupport from './ember-views/target-actions-support';
 import EmberView from 'ember-views/views/view';
 import symbol from 'ember-metal/symbol';
 import { get } from 'ember-metal/property_get';
@@ -23,11 +24,14 @@ export default CoreView.extend(
   ClassNamesSupport,
   InstrumentationSupport,
   AriaRoleSupport,
+  TargetActionSupport,
   ViewMixin, {
     isComponent: true,
     template: null,
     layoutName: null,
     layout: null,
+    controller: null,
+    context: null,
 
     init() {
       this._super(...arguments);
